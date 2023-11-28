@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
-# installs nginx and configure it to listen on port 80 make it return a page with
-# "Hello World" in it
+# Install nginx on web server; Nginx should be listening on port 80
+# Querying Nginx at its root (/) with a GET request (requesting a page)
+# 	   curl http://100.25.161.237/   --> returns string "Hello World!"
+#	   curl http://100.25.161.237/   --> returns header info
 
-apt update
-apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-sudo mkdir -p /var/www/html
-sudo chmod -R 755 /var/www
-echo 'Hello World!' > /var/www/html/index.html
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
-else
-	service nginx restart
-fi
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
+sudo service nginx start
