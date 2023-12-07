@@ -3,7 +3,7 @@
 # display information about subdomains.
 if [ $# -eq 1 ]
 then
-	sub_domains='www lb-01 web-01 web-02'
+	sub_domains='www 255446-lb-01 255446-web-01 255446-web-02'
 else
 	sub_domains="$2"
 fi
