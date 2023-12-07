@@ -46,7 +46,7 @@ frontend www-https
 	reqadd X-Forwarded-Proto:\ https
 	default_backend 255446_web_servers
 
-backend 1270_web_servers
+backend 255446_web_servers
         balance roundrobin
         option forwardfor
 	redirect scheme https if !{ ssl_fc }
